@@ -1,0 +1,72 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@font-face {
+  font-family: 'kalpurushregular';
+  src: url('/fonts/Kalpurush.ttf') format('ttf'),
+    url('/fonts/Kalpurush.ttf') format('ttf');
+  /* Add additional formats if needed */
+  font-weight: normal;
+  font-style: normal;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  transition: scroll-behavior 3s;
+}
+html {
+  width: 100%;
+}
+
+/* Why Mui button styles are not applying, when I set it to contained */
+/* button[class*='MuiButton-containedPrimary'] {
+  background-color: #009164;
+}
+button.MuiButton-containedPrimary:hover {
+  background-color: #009164;
+} */
+
+/* Disable autocomplete globally */
+input,
+form {
+  autocomplete: off;
+}
+
+@layer components {
+  .bg-shiraz-10 {
+    border-radius: 25px;
+    background: var(--www-eporcha-gov-bd-shiraz-10, rgba(200, 4, 76, 0.1));
+  }
+}
+
+.login-container {
+  background-image: url('/assets/bg.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* height: 100; */
+  height: calc(100vh - 411px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-form-box {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.register-form-box {
+  background: rgb(247, 243, 243);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
