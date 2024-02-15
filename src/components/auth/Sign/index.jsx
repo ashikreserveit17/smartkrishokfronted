@@ -1,13 +1,7 @@
 'use client';
 
 import {
-  Button,
-  ButtonGroup,
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Paper,
-  Select,
+  Paper
 } from '@mui/material';
 import TextField from '@mui/material/TextField';
 // import { Button } from '@mui/material';
@@ -131,8 +125,7 @@ export default function Sign() {
         </div>
         <div className="mt-5  flex justify-center ">
           আমার কোন একাউন্ট নেই?
-          <Link href="">
-            {' '}
+          <Link href="/sign/register">
             <p className="font-bold text-primary pl-1">{'নিবন্ধন করুন'}</p>
           </Link>
         </div>

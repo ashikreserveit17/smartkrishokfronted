@@ -1,10 +1,11 @@
 'use client';
-import { Box, Tab, Tabs } from '@mui/material';
-import Image from 'next/image';
-import React, { useCallback, useState } from 'react';
-import { Affix, Anchor, Image as AntImage, Collapse } from 'antd';
 
-export default function index() {
+import { Box, Tab, Tabs } from '@mui/material';
+import { Image as AntImage } from 'antd';
+import Image from 'next/image';
+import React from 'react';
+
+export default function Gallery() {
   const data = [
     {
       id: 1,
