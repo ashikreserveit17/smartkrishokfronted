@@ -27,7 +27,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "src/config/fcm/index.jsx", "src/config/translate/index.js", "src/services/auth/auth.service.js"  ],
   "exclude": [
     "node_modules"
   ]

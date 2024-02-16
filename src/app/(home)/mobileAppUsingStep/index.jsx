@@ -1,19 +1,15 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 'use client';
-import Image from 'next/image';
-import StoreLogo from '../../../../public/store.png';
-import Minus from '../../../../public/minus.svg';
-import * as React from 'react';
-import MuiAccordion, { AccordionProps } from '@mui/material/Accordion';
-import AccordionActions from '@mui/material/AccordionActions';
-import AccordionSummary from '@mui/material/AccordionSummary';
+import MuiAccordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import Image from 'next/image';
+import * as React from 'react';
+import StoreLogo from '../../../../public/store.png';
 import Iconify from '../../../components/Iconify';
 // import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Button from '@mui/material/Button';
-import MobileAppImg from '../../../assets/mobileapp.png';
 import { styled } from '@mui/material/styles';
-import { Container } from '@mui/material';
+import MobileAppImg from '../../../assets/mobileapp.png';
 export default function MobileAddUsingStep() {
   const [toggle, setToggle] = React.useState(false);
   console.log('🚀 ~ index ~ toggle:', toggle);
@@ -43,7 +39,7 @@ export default function MobileAddUsingStep() {
   }));
   const accordionClassName = 'rounded-[10px] border-[#01803780] border-[1px]';
   return (
-    <div className="mt-[80px]">
+    <div className="my-[80px]">
       <div className="text-center ">
         <h2 className="text-4xl text-center max-sm:text-lg font-bold">
           কীভাবে আপনি স্মার্ট কৃষি সাইট থেকে পরিষেবা পাবেন!
@@ -63,13 +59,13 @@ export default function MobileAddUsingStep() {
               expanded={expanded === 'panel1'}
               onChange={handleChange('panel1')}
               className={expanded === 'panel1' ? accordionClassName : ''}
-              // sx={{
-              //   '&.MuiAccordion-root': {
-              //     border: '1px solid #01803780', // Your custom border styles
-              //     borderRadius: '10px', // Your custom border-radius
-              //     margin: '20px 0px',
-              //   },
-              // }}
+            // sx={{
+            //   '&.MuiAccordion-root': {
+            //     border: '1px solid #01803780', // Your custom border styles
+            //     borderRadius: '10px', // Your custom border-radius
+            //     margin: '20px 0px',
+            //   },
+            // }}
             >
               <AccordionSummary
                 expandIcon={
