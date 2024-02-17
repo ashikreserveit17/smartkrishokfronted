@@ -1,5 +1,6 @@
 'use client';
 import { Box, Button } from '@mui/material';
+import FarmerCategory from './farmerCategory/index';
 // import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material';
 const onFinish = (values) => {
   console.log('Success:', values);
@@ -19,10 +20,9 @@ export default function FarmerInformation({ setStep, maxSteps }) {
   return (
     <div>
       <div className="my-10 ml-1">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla,
-        obcaecati.
-
+        <FarmerCategory />
       </div>
+
       <Box>
         {/* <Button
           color="inherit"
