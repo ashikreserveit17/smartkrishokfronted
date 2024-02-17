@@ -3,7 +3,7 @@
 import React from 'react';
 import { Space } from 'antd';
 import MenuCreateAndStepper from './menuCreateAndStepper';
-import StepperComponent from './Stepper1';
+import StepperComponent from './StepperComponent';
 
 const Registration = () => {
   return (

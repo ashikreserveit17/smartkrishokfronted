@@ -31,8 +31,7 @@ export default function Institution({ setStep, maxSteps }) {
           onClick={() => {
             setActiveStep((prevActiveStep) => ({
               ...prevActiveStep,
-              activeStep: prevActiveStep.activeStep - 1,
-              data: 'data',
+              activeStep: prevActiveStep.activeStep - 2,
             }));
           }}
         >
@@ -51,11 +50,26 @@ export default function Institution({ setStep, maxSteps }) {
             },
           }}
           onClick={() => {
-            setActiveStep((prevActiveStep) => ({
-              ...prevActiveStep,
-              activeStep: prevActiveStep.activeStep + 1,
-              title: 'প্রক্তিষ্ঠানে বিবরণ',
-            }));
+            const handleRedirect = () => {
+              const matchedItem = activeStep.data.find((x) =>
+                ['কৃষি', 'প্রাণিসম্পদ', 'মৎস্য'].includes(x)
+              );
+              console.log('🚀 ~ handleRedirect ~ matchedItem:', matchedItem);
+
+              if (matchedItem) {
+                const stepIncrement = {
+                  কৃষি: 4,
+                  প্রাণিসম্পদ: 5,
+                  মৎস্য: 6,
+                }[matchedItem];
+
+                setActiveStep((prevActiveStep) => ({
+                  ...prevActiveStep,
+                  activeStep: stepIncrement,
+                }));
+              }
+            };
+            handleRedirect();
           }}
         >
           {activeStep.activeStep === maxSteps - 1

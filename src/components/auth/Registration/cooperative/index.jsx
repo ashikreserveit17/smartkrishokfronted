@@ -3,9 +3,8 @@ import { Box, Button, MobileStepper } from '@mui/material';
 import React from 'react';
 // import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material';
 export default function Cooperative({ setStep, maxSteps }) {
-  console.log('🚀 ~ Institution ~ setStep:', setStep);
-
   const [activeStep, setActiveStep] = setStep;
+  console.log('🚀 ~ Cooperative ~ activeStep:', activeStep);
   //   const maxSteps = 3;
   const handleBack = () => {
     setActiveStep((prevActiveStep) => ({
@@ -30,8 +29,7 @@ export default function Cooperative({ setStep, maxSteps }) {
           onClick={() => {
             setActiveStep((prevActiveStep) => ({
               ...prevActiveStep,
-              activeStep: prevActiveStep.activeStep - 1,
-              data: 'data',
+              activeStep: prevActiveStep.activeStep - 3,
             }));
           }}
         >
@@ -50,11 +48,26 @@ export default function Cooperative({ setStep, maxSteps }) {
             },
           }}
           onClick={() => {
-            setActiveStep((prevActiveStep) => ({
-              ...prevActiveStep,
-              activeStep: prevActiveStep.activeStep + 1,
-              title: 'প্রক্তিষ্ঠানে বিবরণ',
-            }));
+            const handleRedirect = () => {
+              const matchedItem = activeStep.data.find((x) =>
+                ['কৃষি', 'প্রাণিসম্পদ', 'মৎস্য'].includes(x)
+              );
+              console.log('🚀 ~ handleRedirect ~ matchedItem:', matchedItem);
+
+              if (matchedItem) {
+                const stepIncrement = {
+                  কৃষি: 4,
+                  প্রাণিসম্পদ: 5,
+                  মৎস্য: 6,
+                }[matchedItem];
+
+                setActiveStep((prevActiveStep) => ({
+                  ...prevActiveStep,
+                  activeStep: stepIncrement,
+                }));
+              }
+            };
+            handleRedirect();
           }}
         >
           {activeStep.activeStep === maxSteps - 1

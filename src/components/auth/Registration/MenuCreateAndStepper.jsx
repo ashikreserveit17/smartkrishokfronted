@@ -8,7 +8,7 @@ import StepLabel from '@mui/material/StepLabel';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Institution from './institution';
-import FarmerInformation from './farmer-information/farmer-information';
+// import FarmerInformation from './farmer-information/FarmerCategory';
 
 const steps = [
   'Select campaign settings',
@@ -44,9 +44,9 @@ export default function MenuCreateAndStepper() {
   };
 
   const steps = [
-    <FarmerInformation setStep={[activeStep, setActiveStep]} />,
+    // <FarmerInformation setStep={[activeStep, setActiveStep]} />,
     <Institution setStep={[activeStep, setActiveStep]} />,
-    <FarmerInformation setStep={[activeStep, setActiveStep]} />,
+    // <FarmerInformation setStep={[activeStep, setActiveStep]} />,
   ];
   return (
     <Box sx={{ width: '100%' }}>

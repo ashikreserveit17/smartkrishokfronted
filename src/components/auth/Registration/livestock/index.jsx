@@ -3,9 +3,8 @@ import { Box, Button, MobileStepper } from '@mui/material';
 import React from 'react';
 // import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material';
 export default function Livestock({ setStep, maxSteps }) {
-  console.log('🚀 ~ Institution ~ setStep:', setStep);
-
   const [activeStep, setActiveStep] = setStep;
+  console.log('🚀 ~ Livestock ~ activeStep:', activeStep);
   //   const maxSteps = 3;
   const handleBack = () => {
     setActiveStep((prevActiveStep) => ({
@@ -28,12 +27,38 @@ export default function Livestock({ setStep, maxSteps }) {
           }}
           disabled={activeStep.activeStep === 0}
           onClick={() => {
-            setActiveStep((prevActiveStep) => ({
-              ...prevActiveStep,
-              activeStep: prevActiveStep.activeStep - 1,
-              data: 'data',
-            }));
+            const handleRedirect = () => {
+              const matchedItem = activeStep.data.find((x) =>
+                ['মৎস্য'].includes(x)
+              );
+              console.log('🚀 ~ handleRedirect ~ matchedItem:', matchedItem);
+
+              if (matchedItem) {
+                const stepIncrement = {
+                  // প্রাণিসম্পদ: 2,
+                  মৎস্য: 1,
+                }[matchedItem];
+
+                setActiveStep((prevActiveStep) => ({
+                  ...prevActiveStep,
+                  activeStep: prevActiveStep.activeStep + stepIncrement,
+                }));
+              } else {
+                setActiveStep((prevActiveStep) => ({
+                  ...prevActiveStep,
+                  activeStep: 7,
+                }));
+              }
+            };
+            handleRedirect();
           }}
+          // onClick={() => {
+          //   setActiveStep((prevActiveStep) => ({
+          //     ...prevActiveStep,
+          //     activeStep: prevActiveStep.activeStep - 1,
+          //     // data: 'data',
+          //   }));
+          // }}
         >
           আগের পৃষ্ঠায়
         </Button>
@@ -50,11 +75,30 @@ export default function Livestock({ setStep, maxSteps }) {
             },
           }}
           onClick={() => {
-            setActiveStep((prevActiveStep) => ({
-              ...prevActiveStep,
-              activeStep: prevActiveStep.activeStep + 1,
-              data: 'data',
-            }));
+            const handleRedirect = () => {
+              const matchedItem = activeStep.data.find((x) =>
+                ['মৎস্য'].includes(x)
+              );
+              console.log('🚀 ~ handleRedirect ~ matchedItem:', matchedItem);
+
+              if (matchedItem) {
+                const stepIncrement = {
+                  // প্রাণিসম্পদ: 2,
+                  মৎস্য: 1,
+                }[matchedItem];
+
+                setActiveStep((prevActiveStep) => ({
+                  ...prevActiveStep,
+                  activeStep: prevActiveStep.activeStep + stepIncrement,
+                }));
+              } else {
+                setActiveStep((prevActiveStep) => ({
+                  ...prevActiveStep,
+                  activeStep: 7,
+                }));
+              }
+            };
+            handleRedirect();
           }}
         >
           {activeStep.activeStep === maxSteps - 1

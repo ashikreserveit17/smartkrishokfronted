@@ -16,7 +16,8 @@ const steps = [
 
 import { Button, Checkbox, Form, Input } from 'antd';
 import { TextField } from '@mui/material';
-import FarmerInformation from './farmer-information/farmer-information';
+import FarmerCategory from './farmer/FarmerCategory';
+import FarmerInformation from './farmer-information';
 import Institution from './institution';
 import Cooperative from './Cooperative';
 import Agriculture from './Agriculture';
@@ -32,7 +33,7 @@ const onFinishFailed = (errorInfo) => {
 export default function StepperComponent() {
   const [activeStep, setActiveStep] = React.useState({
     activeStep: 0,
-    title: 'খামারির বিবরণ',
+    // title: 'খামারির বিবরণ',
   });
   console.log('🚀 ~ activeStep:', activeStep);
   const [skipped, setSkipped] = React.useState(new Set());
@@ -85,18 +86,21 @@ export default function StepperComponent() {
         return 'খামারির বিবরণ';
 
       case 1:
-        return 'প্রক্তিষ্ঠানে বিবরণ';
+        return 'ব্যাক্ত বিবরণ';
 
       case 2:
-        return 'সমবায় বিবরণ';
+        return 'প্রক্তিষ্ঠানে বিবরণ';
 
       case 3:
-        return 'খামারির বিবরণ (কৃষি)';
+        return 'সমবায় বিবরণ';
 
       case 4:
-        return 'খামারির বিবরণ (প্রাণিসম্পদ)';
+        return 'খামারির বিবরণ (কৃষি)';
 
       case 5:
+        return 'খামারির বিবরণ (প্রাণিসম্পদ)';
+
+      case 6:
         return 'খামারির বিবরণ (মৎস্য)';
 
       default:
@@ -105,6 +109,10 @@ export default function StepperComponent() {
   };
   const maxSteps = 7;
   const steps = [
+    <FarmerCategory
+      setStep={[activeStep, setActiveStep]}
+      maxSteps={maxSteps}
+    />,
     <FarmerInformation
       setStep={[activeStep, setActiveStep]}
       maxSteps={maxSteps}

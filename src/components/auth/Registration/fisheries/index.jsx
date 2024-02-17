@@ -3,9 +3,8 @@ import { Box, Button, MobileStepper } from '@mui/material';
 import React from 'react';
 // import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material';
 export default function Fisheries({ setStep, maxSteps }) {
-  console.log('🚀 ~ Institution ~ setStep:', setStep);
-
   const [activeStep, setActiveStep] = setStep;
+  console.log('🚀 ~ Fisheries ~ activeStep:', activeStep);
   //   const maxSteps = 3;
   const handleBack = () => {
     setActiveStep((prevActiveStep) => ({

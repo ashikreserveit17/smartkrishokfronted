@@ -2,10 +2,11 @@
 import { Box, Button, MobileStepper } from '@mui/material';
 import React from 'react';
 // import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material';
-export default function Agriculture({ setStep, maxSteps }) {
+export default function FarmerInformation({ setStep, maxSteps }) {
+  console.log('🚀 ~ FarmerInformation ~ setStep:', setStep);
+
   const [activeStep, setActiveStep] = setStep;
-  console.log('🚀 ~ Agriculture ~ activeStep:', activeStep);
-  //   const maxSteps = 3;
+  // const maxSteps = 3;
   const handleBack = () => {
     setActiveStep((prevActiveStep) => ({
       ...prevActiveStep,
@@ -13,7 +14,8 @@ export default function Agriculture({ setStep, maxSteps }) {
   };
   return (
     <div>
-      <div className="my-10 ml-1">agriculter</div>
+      <div className="my-10 ml-1">FarmerInformation</div>
+
       <Box sx={{ display: 'flex', flexDirection: 'row' }}>
         <Button
           type="submit"
@@ -29,7 +31,7 @@ export default function Agriculture({ setStep, maxSteps }) {
           onClick={() => {
             setActiveStep((prevActiveStep) => ({
               ...prevActiveStep,
-              activeStep: 1,
+              activeStep: prevActiveStep.activeStep - 1,
             }));
           }}
         >
@@ -50,24 +52,20 @@ export default function Agriculture({ setStep, maxSteps }) {
           onClick={() => {
             const handleRedirect = () => {
               const matchedItem = activeStep.data.find((x) =>
-                ['প্রাণিসম্পদ', 'মৎস্য'].includes(x)
+                ['কৃষি', 'প্রাণিসম্পদ', 'মৎস্য'].includes(x)
               );
               console.log('🚀 ~ handleRedirect ~ matchedItem:', matchedItem);
 
               if (matchedItem) {
                 const stepIncrement = {
-                  প্রাণিসম্পদ: 1,
-                  মৎস্য: 2,
+                  কৃষি: 3,
+                  প্রাণিসম্পদ: 4,
+                  মৎস্য: 5,
                 }[matchedItem];
 
                 setActiveStep((prevActiveStep) => ({
                   ...prevActiveStep,
                   activeStep: prevActiveStep.activeStep + stepIncrement,
-                }));
-              } else {
-                setActiveStep((prevActiveStep) => ({
-                  ...prevActiveStep,
-                  activeStep: 7,
                 }));
               }
             };
@@ -75,7 +73,7 @@ export default function Agriculture({ setStep, maxSteps }) {
           }}
         >
           {activeStep.activeStep === maxSteps - 1
-            ? 'সংরক্ষণ করুন'
+            ? 'Finish'
             : 'সংরক্ষণ করুন এবং পরবর্তী পৃষ্ঠা'}
         </Button>
       </Box>
